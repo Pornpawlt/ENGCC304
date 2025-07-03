@@ -12,3 +12,5 @@ int main() {
     printf( "Age = %d\n", Age ) ; 
     
 }//end main function
+
+![Image](https://github.com/user-attachments/assets/0dc811ab-8638-44b8-8df3-0a24bb79255b)
