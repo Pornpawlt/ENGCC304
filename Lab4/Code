@@ -1,1 +1,18 @@
+#include <stdio.h>
 
+int main(){
+    char ID[10] ;
+    int workhrs ;
+    int salary ;
+    printf( "Input Employees ID Max. 10 chars):\n" ) ;
+    scanf( "%10s" , ID ) ;
+    printf( "Input the working hrs: \n" ) ;
+    scanf( "%d" , &workhrs ) ;
+    printf( "Salary amount/hr:\n" ) ;
+    scanf( "%d" , &salary ) ;
+    printf( "Expected Output:\n" ) ;
+    printf( "Employees ID = %s \n" ,ID ) ;
+    printf( "Salary = U$ %0.2f" , (float)(salary*=workhrs) ) ;
+
+    return 0 ;
+}
