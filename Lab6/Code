@@ -11,11 +11,11 @@ int main(){
             printf( "%d ",K ) ;
             K -= 2 ;
         }//end for
-    } else if ( N %2 != 0 ) {
+    } else {
         K = 1 ;
         for( int i = 1 ; i <= N ; i += 2){
             printf( "%d ",K ) ;
             K += 2 ;
         }//end for
-    }//end if 
+    }//end if
 }
