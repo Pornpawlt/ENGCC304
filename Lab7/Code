@@ -1,1 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
+int main(){
+    int Answer ;
+
+    srand( time( NULL ) ) ;
+    
+    do{
+   
+        printf("Do you want to play game (1=play,0=exit) :\n ") ;
+        scanf("%d", &Answer ) ;
+            int Score = 100 ;
+            int SeNum = rand() % 100 + 1 ;
+            int N ;
+        if (Answer == 1) {
+            
+
+            printf("(Score = 100)\n") ;
+
+            while(1) {
+                printf("Guess the winning number (1-100) :\n") ;
+                scanf("%d", &N) ;
+
+                if(N == SeNum){
+                    printf("That is correct! The winning number is : %d\n ", SeNum) ;
+                    printf("Score this game : %d\n ", Score) ;
+                    break;
+                } else {
+                    Score -= 10 ;
+                    if(Score < 0) Score = 0 ;
+
+                    if(N < SeNum){
+                        printf("Sorry, the winning number is HIGHER than %d . (Score=%d)\n", N , Score) ;
+                    } else {
+                        printf("Sorry, the winning number is LOWER than %d . (Score=%d)\n", N , Score) ;
+                    }
+                }
+            }
+        } else if (Answer == 0){
+            printf("Do you want to play game (1=play,-1=exit)") ;
+        } else{
+            printf("See you again.)") ;
+        }
+    } while (Answer != 0) ;
+
+    return 0;
+}
