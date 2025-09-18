@@ -1,1 +1,40 @@
+#include <stdio.h>
 
+int main() {
+    int n ;
+    int i ;
+    int j ;
+    int K = 1 ;
+   
+    printf("Enter N : \n") ;
+    scanf("%d", &n) ; 
+    int Num[n] ;
+    
+    for (i = 0; i < n; i++){
+        printf("Enter your value [%d] :\n", i) ;
+        scanf("%d", &Num[i]) ;
+    }
+    printf("Index :") ;
+    for (i = 0; i < n ; i++){
+        printf(" %d",i) ;
+    }
+    printf("\nArray :") ;
+    for (i = 0; i < n ; i++){
+        int num = Num[i] ;
+        
+        if (num <= 1) {
+            K = 0 ;
+        } else {
+            for ( j = 2; j*j<= num; j++){
+                if(num % j == 0){
+                    K = 0 ;
+                }
+            }
+        }
+        if(K){
+            printf(" %d", num) ;
+        } else {
+            printf(" #") ;
+        }
+    }
+}
