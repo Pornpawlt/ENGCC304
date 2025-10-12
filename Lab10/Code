@@ -1,1 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
+int main() {
+    char word[100];          
+    int length, i;
+    int isPalindrome = 1;     
+
+    printf("Enter word:\n");
+    scanf("%s", word);        
+
+    length = strlen(word);
+
+    for (i = 0; i < length / 2; i++) {
+        if (tolower(word[i]) != tolower(word[length - i - 1])) {
+            isPalindrome = 0;
+            break;
+        }
+    }
+
+    if (isPalindrome) {
+        printf("Pass.\n");
+    } else {
+        printf("Not Pass.\n");
+    }
+
+    return 0;
+}
