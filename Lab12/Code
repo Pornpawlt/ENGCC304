@@ -1,1 +1,76 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct Student {
+    char Name[50];
+    char ID[10];
+    float ScoreSub[5];
+} S;
+
+const char* getGrade(float score) {
+    if (score >= 80) return "A";
+    else if (score >= 75) return "B+";
+    else if (score >= 70) return "B";
+    else if (score >= 65) return "C+";
+    else if (score >= 60) return "C";
+    else if (score >= 55) return "D+";
+    else if (score >= 50) return "D";
+    else return "F";
+}
+
+float calculateAverage(float scores[], int n) {
+    float sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += scores[i];
+    }
+    return sum / n;
+}
+
+int main() {
+    S students[3];
+
+    printf("Enter the details of 3 students:\n");
+
+    for (int i = 0; i < 3; i++) {
+        printf("Student %d:\n", i + 1);
+
+        printf("Name: \n");
+        getchar();
+        fgets(students[i].Name, sizeof(students[i].Name), stdin);
+        students[i].Name[strcspn(students[i].Name, "\n")] = '\0';
+
+        printf("ID: \n");
+        scanf("%s", students[i].ID);
+
+        for (int j = 0; j < 5; j++) {
+            printf("Scores in Subject %d: \n", j + 1);
+            scanf("%f", &students[i].ScoreSub[j]);
+        }
+    }
+
+    printf("\n");
+
+    for (int i = 0; i < 3; i++) {
+        printf("Student %d:\n", i + 1);
+        printf("Name: %s\n", students[i].Name);
+        printf("ID: %s\n", students[i].ID);
+
+        printf("Scores: ");
+        for (int j = 0; j < 5; j++) {
+            printf("%.0f ", students[i].ScoreSub[j]);
+        }
+        printf("\n");
+
+        printf("Grades: ");
+        for (int j = 0; j < 5; j++) {
+            printf("%s ", getGrade(students[i].ScoreSub[j]));
+        }
+        printf("\n");
+
+        float avg = calculateAverage(students[i].ScoreSub, 5);
+        printf("Average Scores: %.1f\n\n", avg);
+    }
+
+    return 0;
+}
 
